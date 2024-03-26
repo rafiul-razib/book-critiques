@@ -3,7 +3,7 @@ import Navbar from "../components/Navbar";
 
 const Root = () => {
   return (
-    <div className="max-w[82%]">
+    <div>
       <Navbar></Navbar>
       <Outlet></Outlet>
     </div>

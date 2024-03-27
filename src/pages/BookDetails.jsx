@@ -1,10 +1,33 @@
+import { useState } from "react";
 import { useLoaderData, useParams } from "react-router-dom";
+import {
+  getReadBooks,
+  saveAsRead,
+  getWishedBooks,
+  saveAsWished,
+} from "../Utilities";
 
 const BookDetails = () => {
   const books = useLoaderData();
   let { id } = useParams();
   const book = books.find((book) => book.bookId == id);
-  //   console.log(book);
+
+  const [readBooks, setReadBooks] = useState([]);
+  const [wishedBooks, setWishedBooks] = useState([]);
+
+  const handleReadBooks = (book) => {
+    getReadBooks();
+    saveAsRead(book);
+    // console.log("handle read clicked");
+  };
+
+  const handleWishedBooks = (book) => {
+    getWishedBooks();
+    saveAsWished(book);
+  };
+
+  console.log(readBooks);
+
   const {
     bookName,
     author,
@@ -78,10 +101,18 @@ const BookDetails = () => {
           </div>
         </div>
         <div className="card-actions justify-start flex gap-3">
-          <button className="btn bg-transparent border-2 border-secondary font-bold">
+          <button
+            onClick={() => handleReadBooks(book)}
+            className="btn bg-transparent border-2 border-secondary font-bold hover:bg-primary hover:text-white"
+          >
             Read
           </button>
-          <button className="btn bg-secondary text-white">Wishlist</button>
+          <button
+            onClick={() => handleWishedBooks(book)}
+            className="btn bg-secondary text-white"
+          >
+            Wishlist
+          </button>
         </div>
       </div>
     </div>

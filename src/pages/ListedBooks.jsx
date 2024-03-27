@@ -5,7 +5,7 @@ const ListedBooks = () => {
   const [tabIndex, setTabIndex] = useState(0);
   return (
     <div className="max-w-[82%] mx-auto">
-      <div className="bg-[#1313130D] h-36  flex justify-center items-center">
+      <div className="bg-[#1313130D] h-36 rounded-xl flex justify-center items-center">
         <h1 className="text-5xl font-bold">Books</h1>
       </div>
 

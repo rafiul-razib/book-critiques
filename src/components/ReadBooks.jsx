@@ -1,7 +1,18 @@
+import { useEffect, useState } from "react";
+import { getReadBooks } from "../Utilities";
+import SavedBookCard from "./SavedBookCard";
+
 const ReadBooks = () => {
+  const [books, setBooks] = useState([]);
+  useEffect(() => {
+    const savedReadBooks = getReadBooks();
+    setBooks(savedReadBooks);
+  }, []);
   return (
     <div>
-      <h1>These books are read</h1>
+      {books.map((book) => (
+        <SavedBookCard key={book.bookId}></SavedBookCard>
+      ))}
     </div>
   );
 };

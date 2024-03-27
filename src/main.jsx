@@ -8,6 +8,8 @@ import Home from "./pages/Home.jsx";
 import ListedBooks from "./pages/ListedBooks.jsx";
 import PagesToRead from "./pages/PagesToRead.jsx";
 import BookDetails from "./pages/BookDetails.jsx";
+import ReadBooks from "./components/ReadBooks.jsx";
+import WishListBooks from "./components/WishListBooks.jsx";
 
 const router = createBrowserRouter([
   {
@@ -30,6 +32,16 @@ const router = createBrowserRouter([
       {
         path: "/listed-books",
         element: <ListedBooks />,
+        children: [
+          {
+            index: true,
+            element: <ReadBooks></ReadBooks>,
+          },
+          {
+            path: "wishlist",
+            element: <WishListBooks></WishListBooks>,
+          },
+        ],
       },
       {
         path: "/pages-to-read",

@@ -10,7 +10,7 @@ const Navbar = () => {
               ? "text-primary font-bold border-2 bg-transparent px-4 border-primary"
               : "bg-transparent hover:bg-transparent"
           }
-          to="/home"
+          to="/"
         >
           Home
         </NavLink>

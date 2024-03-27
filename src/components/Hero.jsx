@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import heroImg from "../assets/images/pngwing 1.png";
 const Hero = () => {
   return (
@@ -9,7 +10,11 @@ const Hero = () => {
               Books to freshen up <br /> your bookshelf
             </h1>
 
-            <button className="btn bg-primary text-white">View The List</button>
+            <Link to="/listed-books">
+              <button className="btn bg-primary text-white">
+                View The List
+              </button>
+            </Link>
           </div>
           <div className="max-w-80">
             <img src={heroImg} className="w-full" />

@@ -7,6 +7,7 @@ import ErrorPage from "./pages/ErrorPage.jsx";
 import Home from "./pages/Home.jsx";
 import ListedBooks from "./pages/ListedBooks.jsx";
 import PagesToRead from "./pages/PagesToRead.jsx";
+import BookDetails from "./pages/BookDetails.jsx";
 
 const router = createBrowserRouter([
   {
@@ -15,9 +16,16 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage />,
     children: [
       {
-        path: "/home",
+        path: "/",
         element: <Home />,
-        loader: () => fetch("books.json"),
+        loader: () =>
+          fetch("https://rafiul-razib.github.io/testJsonBooksData/books.json"),
+      },
+      {
+        path: "/book/:id",
+        element: <BookDetails />,
+        loader: () =>
+          fetch("https://rafiul-razib.github.io/testJsonBooksData/books.json"),
       },
       {
         path: "/listed-books",

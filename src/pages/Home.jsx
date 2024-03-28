@@ -3,7 +3,7 @@ import Hero from "../components/Hero";
 
 const Home = () => {
   return (
-    <div>
+    <div className=" max-w-[82%] mx-auto">
       <Hero></Hero>
       <Books></Books>
     </div>

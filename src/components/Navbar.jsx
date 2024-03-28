@@ -31,7 +31,7 @@ const Navbar = () => {
         <NavLink
           className={({ isActive }) =>
             isActive
-              ? "text-primary font-bold border-2 bg-transparent px-4 border-primary"
+              ? "text-primary font-bold border-2 bg-transparent px-4 border-primary "
               : "bg-transparent hover:bg-transparent"
           }
           to="/pages-to-read"
@@ -43,7 +43,7 @@ const Navbar = () => {
   );
   return (
     <div className="flex justify-center mb-28">
-      <div className="navbar max-w-[82%] bg-base-100 mx-auto fixed z-10">
+      <div className="navbar lg:max-w-[82%] bg-base-100 mx-auto fixed z-10">
         <div className="navbar-start">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -64,12 +64,12 @@ const Navbar = () => {
             </div>
             <ul
               tabIndex={0}
-              className="menu menu-sm dropdown-content mt-3 z-[1] p-2 rounded-box w-52"
+              className="menu menu-sm dropdown-content mt-3 z-[1] p-2 rounded-box w-52 bg-white shadow-md"
             >
               {links}
             </ul>
           </div>
-          <a className="btn btn-ghost text-xl lg:text-4xl font-extrabold">
+          <a className="btn btn-ghost text-2xl lg:text-4xl pl-0 font-extrabold">
             Book Critiques
           </a>
         </div>

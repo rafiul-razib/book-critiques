@@ -26,19 +26,25 @@ const SavedBookCard = ({ book }) => {
       <div className="card-body">
         <h2 className="card-title text-2xl font-bold">{bookName}</h2>
         <p>By : {author}</p>
-        <div className="flex gap-2 text-sm">
-          <h1 className="font-bold">Tags - </h1>
-          {tags.slice(0, 2).map((tag) => (
-            <div className="badge bg-[#23BE0A0D] text-primary p-3" key={tag}>
-              {tag}
-            </div>
-          ))}
+        <div className="flex flex-col lg:flex-row gap-3 lg:gap-6 text-sm">
+          <div>
+            <span className="font-bold">Tags -</span>
+            {tags.slice(0, 2).map((tag) => (
+              <div
+                className="badge bg-[#23BE0A0D] text-primary p-3 m-2"
+                key={tag}
+              >
+                {tag}
+              </div>
+            ))}
+          </div>
+
           <div className="flex items-center gap-1">
             <MdOutlinePlace className="font-thin" /> Year of Publishing :{" "}
             {yearOfPublishing}
           </div>
         </div>
-        <div className="flex justify-start gap-5 text-sm">
+        <div className="flex flex-col lg:flex-row justify-start gap-2 lg:gap-5 text-sm">
           <div className="flex items-center gap-1">
             <BsPeople className=" font-thin" /> Publisher : {""}
             {publisher}

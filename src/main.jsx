@@ -11,6 +11,8 @@ import BookDetails from "./pages/BookDetails.jsx";
 import ReadBooks from "./components/ReadBooks.jsx";
 import WishListBooks from "./components/WishListBooks.jsx";
 import { Toaster } from "react-hot-toast";
+import About from "./pages/About.jsx";
+import Contacts from "./pages/Contacts.jsx";
 
 const router = createBrowserRouter([
   {
@@ -49,6 +51,14 @@ const router = createBrowserRouter([
         element: <PagesToRead />,
         loader: () =>
           fetch("https://rafiul-razib.github.io/testJsonBooksData/books.json"),
+      },
+      {
+        path: "/about",
+        element: <About />,
+      },
+      {
+        path: "/contacts",
+        element: <Contacts />,
       },
     ],
   },

@@ -36,13 +36,37 @@ const Navbar = () => {
           }
           to="/pages-to-read"
         >
-          Page to Read
+          Pages to Read
+        </NavLink>
+      </li>
+      <li>
+        <NavLink
+          className={({ isActive }) =>
+            isActive
+              ? "text-primary font-bold border-2 bg-transparent px-4 border-primary "
+              : "bg-transparent hover:bg-transparent"
+          }
+          to="/about"
+        >
+          About
+        </NavLink>
+      </li>
+      <li>
+        <NavLink
+          className={({ isActive }) =>
+            isActive
+              ? "text-primary font-bold border-2 bg-transparent px-4 border-primary "
+              : "bg-transparent hover:bg-transparent"
+          }
+          to="/contacts"
+        >
+          Contacts
         </NavLink>
       </li>
     </>
   );
   return (
-    <div className="flex justify-center mb-28">
+    <div className="flex justify-around mb-28">
       <div className="navbar lg:max-w-[82%] bg-base-100 mx-auto fixed -mt-28 lg:mt-0 z-10">
         <div className="navbar-start">
           <div className="dropdown">

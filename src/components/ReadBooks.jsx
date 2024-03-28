@@ -11,7 +11,7 @@ const ReadBooks = () => {
   return (
     <div>
       {books.map((book) => (
-        <SavedBookCard key={book.bookId}></SavedBookCard>
+        <SavedBookCard key={book.bookId} book={book}></SavedBookCard>
       ))}
     </div>
   );

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link, Outlet } from "react-router-dom";
+import { Link, NavLink, Outlet } from "react-router-dom";
 
 const ListedBooks = () => {
   const [tabIndex, setTabIndex] = useState(0);
@@ -27,8 +27,10 @@ const ListedBooks = () => {
             strokeLinejoin="round"
             className="w-4 h-4"
           >
-            <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path>
+            <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+            <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
           </svg>
+
           <span>Read Books</span>
         </Link>
         <Link
@@ -48,11 +50,12 @@ const ListedBooks = () => {
             strokeLinejoin="round"
             className="w-4 h-4"
           >
-            <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
-            <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+            <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path>
           </svg>
+
           <span>Wishlist Books</span>
         </Link>
+        <div className="py-6 border-gray-400 border-b w-full"></div>
       </div>
       <Outlet></Outlet>
     </div>

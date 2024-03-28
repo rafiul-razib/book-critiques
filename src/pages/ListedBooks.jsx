@@ -1,21 +1,30 @@
-import { createContext, useState } from "react";
+import { useState } from "react";
 import { Link, Outlet } from "react-router-dom";
 import { IoIosArrowDown } from "react-icons/io";
+import { createContext } from "react";
+import { getReadBooks, getWishedBooks } from "../Utilities";
 export const SortContext = createContext();
 
 const ListedBooks = () => {
   const [myTabIndex, setMyTabIndex] = useState(0);
-
   const [sortedBooks, setSortedBooks] = useState([]);
+
+  const booksRead = getReadBooks();
+  const booksWished = getWishedBooks();
+
+  // const books = [...booksRead, ...booksWished];
 
   const handleSOrtByRating = (books) => {
     const newBooks = books.sort((a, b) => a.rating - b.rating);
     setSortedBooks(newBooks);
+    console.log("sort called from outside");
   };
+
   const handleSOrtByPages = (books) => {
     const newBooks = books.sort((a, b) => a.totalPages - b.totalPages);
     setSortedBooks(newBooks);
   };
+
   const handleSOrtByYear = (books) => {
     const newBooks = books.sort(
       (a, b) => a.yearOfPublishing - b.yearOfPublishing
@@ -42,13 +51,13 @@ const ListedBooks = () => {
             tabIndex={0}
             className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52"
           >
-            <li onClick={() => handleSOrtByRating}>
+            <li onClick={() => handleSOrtByRating(booksRead || booksWished)}>
               <a>Rating</a>
             </li>
-            <li onClick={() => handleSOrtByPages}>
+            <li onClick={() => handleSOrtByPages(booksRead || booksWished)}>
               <a>Number of Pages</a>
             </li>
-            <li onClick={() => handleSOrtByYear}>
+            <li onClick={() => handleSOrtByYear(booksRead || booksWished)}>
               <a>Published Year</a>
             </li>
           </ul>
@@ -104,7 +113,9 @@ const ListedBooks = () => {
         <div className="py-6 border-gray-400 border-b w-full"></div>
       </div>
       <SortContext.Provider
-        value={{ handleSOrtByRating, handleSOrtByPages, handleSOrtByYear }}
+        value={{
+          sortedBooks,
+        }}
       >
         <Outlet></Outlet>
       </SortContext.Provider>

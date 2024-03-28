@@ -10,16 +10,20 @@ const ReadBooks = () => {
     const savedReadBooks = getReadBooks();
     setBooks(savedReadBooks);
   }, []);
-  const handlers = useContext(SortContext);
-  const { handleSOrtByRating, handleSOrtByPages, handleSOrtByYear } = handlers;
-  handleSOrtByRating(books);
-  handleSOrtByPages(books);
-  handleSOrtByYear(books);
+
+  const sortHandlers = useContext(SortContext);
+
+  const { sortedBooks } = sortHandlers;
+
   return (
     <div>
-      {books.map((book) => (
-        <SavedBookCard key={book.bookId} book={book}></SavedBookCard>
-      ))}
+      {sortedBooks.length
+        ? sortedBooks.map((book) => (
+            <SavedBookCard key={book.bookId} book={book}></SavedBookCard>
+          ))
+        : books.map((book) => (
+            <SavedBookCard key={book.bookId} book={book}></SavedBookCard>
+          ))}
     </div>
   );
 };

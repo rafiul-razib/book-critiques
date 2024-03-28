@@ -1,9 +1,28 @@
-import { useState } from "react";
+import { createContext, useState } from "react";
 import { Link, Outlet } from "react-router-dom";
 import { IoIosArrowDown } from "react-icons/io";
+export const SortContext = createContext();
 
 const ListedBooks = () => {
   const [myTabIndex, setMyTabIndex] = useState(0);
+
+  const [sortedBooks, setSortedBooks] = useState([]);
+
+  const handleSOrtByRating = (books) => {
+    const newBooks = books.sort((a, b) => a.rating - b.rating);
+    setSortedBooks(newBooks);
+  };
+  const handleSOrtByPages = (books) => {
+    const newBooks = books.sort((a, b) => a.totalPages - b.totalPages);
+    setSortedBooks(newBooks);
+  };
+  const handleSOrtByYear = (books) => {
+    const newBooks = books.sort(
+      (a, b) => a.yearOfPublishing - b.yearOfPublishing
+    );
+    setSortedBooks(newBooks);
+  };
+
   return (
     <div className="max-w-[82%] mx-auto">
       <div className="bg-[#1313130D] h-36 rounded-xl flex justify-center items-center">
@@ -23,13 +42,13 @@ const ListedBooks = () => {
             tabIndex={0}
             className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52"
           >
-            <li>
+            <li onClick={() => handleSOrtByRating}>
               <a>Rating</a>
             </li>
-            <li>
+            <li onClick={() => handleSOrtByPages}>
               <a>Number of Pages</a>
             </li>
-            <li>
+            <li onClick={() => handleSOrtByYear}>
               <a>Published Year</a>
             </li>
           </ul>
@@ -84,7 +103,11 @@ const ListedBooks = () => {
         </Link>
         <div className="py-6 border-gray-400 border-b w-full"></div>
       </div>
-      <Outlet></Outlet>
+      <SortContext.Provider
+        value={{ handleSOrtByRating, handleSOrtByPages, handleSOrtByYear }}
+      >
+        <Outlet></Outlet>
+      </SortContext.Provider>
     </div>
   );
 };

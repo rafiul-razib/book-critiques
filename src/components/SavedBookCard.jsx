@@ -16,6 +16,7 @@ const SavedBookCard = ({ book }) => {
     image,
     bookId,
   } = book;
+
   return (
     <div className="card lg:card-side bg-base-100 shadow-xl my-5">
       <div className="flex justify-center items-center py-5 px-10 bg-[#1313130D] m-6 rounded-2xl">

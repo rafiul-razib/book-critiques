@@ -1,7 +1,9 @@
+import BookChart from "../components/BookChart";
+
 const PagesToRead = () => {
   return (
-    <div>
-      <h2>Pages to read</h2>
+    <div className="max-w-[82%] mx-auto">
+      <BookChart></BookChart>
     </div>
   );
 };

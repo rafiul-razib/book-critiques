@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { useLoaderData, useParams } from "react-router-dom";
 import {
   getReadBooks,
@@ -12,9 +11,6 @@ const BookDetails = () => {
   let { id } = useParams();
   const book = books.find((book) => book.bookId == id);
 
-  const [readBooks, setReadBooks] = useState([]);
-  const [wishedBooks, setWishedBooks] = useState([]);
-
   const handleReadBooks = (book) => {
     getReadBooks();
     saveAsRead(book);
@@ -26,7 +22,7 @@ const BookDetails = () => {
     saveAsWished(book);
   };
 
-  console.log(readBooks);
+  // console.log(readBooks);
 
   const {
     bookName,

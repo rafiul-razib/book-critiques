@@ -43,7 +43,7 @@ const Navbar = () => {
   );
   return (
     <div className="flex justify-center mb-28">
-      <div className="navbar lg:max-w-[82%] bg-base-100 mx-auto fixed z-10">
+      <div className="navbar lg:max-w-[82%] bg-base-100 mx-auto fixed -mt-28 lg:mt-0 z-10">
         <div className="navbar-start">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -69,14 +69,14 @@ const Navbar = () => {
               {links}
             </ul>
           </div>
-          <a className="btn btn-ghost text-2xl lg:text-4xl pl-0 font-extrabold">
+          <a className="btn btn-ghost text-xl lg:text-4xl pl-0 font-extrabold">
             Book Critiques
           </a>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-2">{links}</ul>
         </div>
-        <div className="navbar-end flex gap-4">
+        <div className="navbar-end flex gap-1 lg:gap-4">
           <a className="btn bg-primary text-white px-3 lg:px-6">Sign In</a>
           <a className="btn bg-secondary text-white px-3 lg:px-6">Sign Up</a>
         </div>

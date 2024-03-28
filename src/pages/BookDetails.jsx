@@ -38,14 +38,16 @@ const BookDetails = () => {
     publisher,
   } = book;
   return (
-    <div className="card lg:card-side w-[82%] mx-auto">
-      <div className="bg-[#1313130D] w-[40%] rounded-2xl flex items-center justify-center">
+    <div className="card lg:card-side max-w-[82%] mx-auto mb-4">
+      <div className="bg-[#1313130D] w-full p-6 lg:w-[40%] rounded-2xl flex items-center justify-center">
         <figure className="px-14 w-[500px]">
           <img src={image} className="w-full" alt="Book Image" />
         </figure>
       </div>
-      <div className="card-body">
-        <h2 className="card-title text-5xl font-bold">{bookName}</h2>
+      <div className="card-body p-2 lg:p-8">
+        <h2 className="card-title text-2xl lg:text-5xl font-bold">
+          {bookName}
+        </h2>
         <p>By : {author}</p>
         <div className="divider my-0"></div>
         <h1 className="">{category}</h1>
@@ -53,22 +55,24 @@ const BookDetails = () => {
         <h2>
           <span className="font-bold">Review</span> : {review}
         </h2>
-        <div className="flex gap-2 text-sm">
-          <h2>
-            <span className="font-bold">Tags</span> -{" "}
+
+        <div className="flex gap-2 items-center">
+          <span className="font-bold">Tags</span> -{" "}
+          <div className="flex">
             {tags.map((tag) => (
               <div
-                className="badge bg-[#23BE0A0D] text-primary p-3 mr-2"
+                className="badge bg-[#23BE0A0D] text-primary text-xs lg:text-base px-3 py-5 lg:py-3 mr-1 lg:mr-2"
                 key={tag}
               >
                 {tag}
               </div>
             ))}
-          </h2>
+          </div>
         </div>
+
         <div>
           <div className="overflow-x-auto">
-            <table className="table">
+            <table className="table w-full text-xs lg:text-base">
               {/* head */}
 
               <tbody>
@@ -96,7 +100,7 @@ const BookDetails = () => {
             </table>
           </div>
         </div>
-        <div className="card-actions justify-start flex gap-3">
+        <div className="card-actions justify-center lg:justify-start flex gap-3">
           <button
             onClick={() => handleReadBooks(book)}
             className="btn bg-transparent border-2 border-secondary font-bold hover:bg-primary hover:text-white"
